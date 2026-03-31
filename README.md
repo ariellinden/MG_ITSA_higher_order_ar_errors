@@ -1,0 +1,1 @@
+This .do file has all the code used in the paper. Make sure to change the directory names, as the current names are from my computer. Also, I strongly recommend parallel processing the code since simulations can take a very long time.
