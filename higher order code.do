@@ -25,7 +25,7 @@
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -65,7 +65,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 **********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -105,7 +105,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -145,7 +145,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -185,7 +185,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -225,7 +225,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -556,9 +556,9 @@ foreach scenario of local scenarios {
 
         // Generate the graph
         twoway ///
-            (connected coverage period if model == "newey" & scenario == `scenario' & tpost == `tpost', ///
+            (connected bias period if model == "newey" & scenario == `scenario' & tpost == `tpost', ///
                 sort msymbol(O) mcolor(black)) ///
-            (connected coverage period if model == "praisk" & scenario == `scenario' & tpost == `tpost', ///
+            (connected bias period if model == "praisk" & scenario == `scenario' & tpost == `tpost', ///
                 sort msymbol(Oh) mcolor(black) lpattern(dash)), ///
             legend(order(1 "Newey" 2 "Prais") ///
                 title("Model", size(medium))) ///
@@ -799,7 +799,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -839,7 +839,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 **********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -879,7 +879,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -919,7 +919,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -959,7 +959,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -999,7 +999,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -1144,7 +1144,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2; trho3 = 0.1 crho3 = 0.1 
 * (NW)
 *****************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -1187,7 +1187,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.7 crho1 = 0.7; trho2 = −0.3 crho2 = −0.3; trho3 = 0.15 crho2 = 0.15 
 * (NW)
 *********************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -1230,7 +1230,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.6 crho1 = 0.6; trho2 = 0.25 crho2 = 0.25; trho3 = 0.10 crho3 = 0.10 
 * (NW)
 *******************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -1273,7 +1273,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2; trho3 = 0.1 crho3 = 0.1 
 * (PW)
 *****************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -1316,7 +1316,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.7 crho1 = 0.7; trho2 = −0.3 crho2 = −0.3; trho3 = 0.15 crho2 = 0.15 
 * (PW)
 *********************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -1359,7 +1359,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.6 crho1 = 0.6; trho2 = 0.25 crho2 = 0.25; trho3 = 0.10 crho3 = 0.10 
 * (NW)
 *******************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1.25 1.50 2) ///
@@ -1947,7 +1947,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -1990,7 +1990,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 **********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -2033,7 +2033,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -2076,7 +2076,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -2119,7 +2119,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -2162,7 +2162,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(1) tpost(1) ///
@@ -2317,7 +2317,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -2357,7 +2357,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 **********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -2397,7 +2397,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -2437,7 +2437,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -2477,7 +2477,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -2517,7 +2517,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3091,7 +3091,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3131,7 +3131,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 **********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3171,7 +3171,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3211,7 +3211,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3251,7 +3251,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3291,7 +3291,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -3436,7 +3436,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2; trho3 = 0.1 crho3 = 0.1 
 * (NW)
 *****************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(1) ///
@@ -3479,7 +3479,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.7 crho1 = 0.7; trho2 = −0.3 crho2 = −0.3; trho3 = 0.15 crho2 = 0.15 
 * (NW)
 *********************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(1) ///
@@ -3522,7 +3522,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.6 crho1 = 0.6; trho2 = 0.25 crho2 = 0.25; trho3 = 0.10 crho3 = 0.10 
 * (NW)
 *******************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(1) ///
@@ -3565,7 +3565,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2; trho3 = 0.1 crho3 = 0.1 
 * (PW)
 *****************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(1) ///
@@ -3608,7 +3608,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.7 crho1 = 0.7; trho2 = −0.3 crho2 = −0.3; trho3 = 0.15 crho2 = 0.15 
 * (PW)
 *********************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(1) ///
@@ -3651,7 +3651,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.6 crho1 = 0.6; trho2 = 0.25 crho2 = 0.25; trho3 = 0.10 crho3 = 0.10 
 * (NW)
 *******************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(1) cpre(1) ///
     tstep(2 2.5 3) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(1) ////
@@ -4235,7 +4235,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -4278,7 +4278,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 **********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -4321,7 +4321,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -4364,7 +4364,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 *******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -4407,7 +4407,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -4450,7 +4450,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
     tint(10) cint(10) tpre(0) cpre(0) ///
     tstep(0) cstep(0) tsd(1) csd(1) ///
     cpost(0) tpost(0) ///
@@ -4591,7 +4591,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -4632,7 +4632,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (NW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -4674,7 +4674,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (NW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -4715,7 +4715,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 ***************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -4756,7 +4756,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.5 crho1 = 0.5; trho2 = -0.4 crho2 = -0.4 
 * (PW)
 ********************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -4798,7 +4798,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.7 crho1 = 0.7; trho2 = 0.2 crho2 = 0.2 
 * (PW)
 ******************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -5186,7 +5186,7 @@ graph save "Graph" "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Highe
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2; trho3 = 0.1 crho3 = 0.1 
 * (NW)
 *****************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -5229,7 +5229,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.7 crho1 = 0.7; trho2 = −0.3 crho2 = −0.3; trho3 = 0.15 crho2 = 0.15 
 * (NW)
 *********************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -5273,7 +5273,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.6 crho1 = 0.6; trho2 = 0.25 crho2 = 0.25; trho3 = 0.10 crho3 = 0.10 
 * (NW)
 *******************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -5316,7 +5316,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 1: trho1 = 0.4 crho1 = 0.4; trho2 = 0.2 crho2 = 0.2; trho3 = 0.1 crho3 = 0.1 
 * (PW)
 *****************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -5359,7 +5359,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 2: trho1 = 0.7 crho1 = 0.7; trho2 = −0.3 crho2 = −0.3; trho3 = 0.15 crho2 = 0.15 
 * (PW)
 *********************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
@@ -5402,7 +5402,7 @@ save "C:\Users\Ariel\Desktop\ITSA_stuff\Compare NW and PRAIS\Higher order AR err
 * Scenario 3: trho1 = 0.6 crho1 = 0.6; trho2 = 0.25 crho2 = 0.25; trho3 = 0.10 crho3 = 0.10 
 * (PW)
 *******************************************************************************************
-power multi_itsa2, n(10(10)100) contcnt(4) ///
+power multi_itsa, n(10(10)100) contcnt(4) ///
 	tint(10) cint(8) tpre(1) cpre(1) ///
 	tstep(2) cstep(0) tsd(1) csd(1) ///
 	cpost(1) tpost(2) ///
